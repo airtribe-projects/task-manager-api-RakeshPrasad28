@@ -1,11 +1,14 @@
 const express = require('express');
-const fileManagerRoutes = require('./routes/fileManagerRoutes.js')
+const fileManagerRoutes = require('./routes/fileManagerRoutes.js');
+const taskRoutes = require("./routes/tasks");
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/file-manager', fileManagerRoutes);
+app.use("/tasks", taskRoutes);
+
 
 app.get('/',(req,res)=>{
     res.send("Hello rocco")
